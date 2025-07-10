@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parts Marketplace</title>
+  <link rel="stylesheet" href="parts.css" />
+</head>
+<body>
+  <header>
+    <h1>AUTOCARE360</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mechanics.html">Mechanic Finder</a>
+      <a href="parts.html">Parts</a>
+      <a href="diy.html">DIY Tutorials</a>
+      <a href="used.html">Used Vehicles</a>
+      <a href="documents.html">Documents</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Parts Marketplace</h1>
+
+    <div class="filters">
+      <select id="vehicleType">
+        <option value="">Select Vehicle Type</option>
+        <option value="Car">Car</option>
+        <option value="Bike">Bike</option>
+      </select>
+
+      <select id="brand">
+        <option value="">Select Brand</option>
+        <option value="Honda">Honda</option>
+        <option value="Yamaha">Yamaha</option>
+        <option value="Suzuki">Suzuki</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="Tata">Tata</option>
+      </select>
+
+      <select id="partCategory">
+        <option value="">Select Part</option>
+        <option value="Engine">Engine</option>
+        <option value="Brakes">Brakes</option>
+        <option value="Suspension">Suspension</option>
+        <option value="Lights">Lights</option>
+        <option value="Battery">Battery</option>
+        <option value="Tires">Tires</option>
+      </select>
+
+      <button onclick="filterParts()">Search</button>
+    </div>
+
+    <div class="parts-list" id="partsList">
+      <!-- Filtered parts will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    function filterParts() {
+      const partCategory = document.getElementById("partCategory").value;
+
+      const sampleParts = [
+        {
+          title: "Front Disc Brake",
+          image: "assets/DISC BRAKES.png",
+          price: "₹3,500",
+          availability: "In Stock",
+          category: "Brakes"
+        },
+        {
+          title: "Back Disc Brake",
+          image: "assets/DISC BRAKES.png",
+          price: "₹5,500",
+          availability: "In Stock",
+          category: "Brakes"
+        },
+        {
+          title: "44 W LED Headlight Kit",
+          image: "assets/Headlight.png",
+          price: "₹2,200",
+          availability: "Limited",
+          category: "Lights"
+        },
+        {
+          title: "125 CC Single Cylinder Engine",
+          image: "assets/engine.png",
+          price: "₹55,200",
+          availability: "Limited",
+          category: "Engine"
+        },
+        {
+          title: "150 CC Twin Cylinder Engine",
+          image: "assets/twin cylinder.png",
+          price: "₹55,200",
+          availability: "Limited",
+          category: "Engine"
+        },
+         {
+          title: "250 CC Twin Cylinder Engine",
+          image: "assets/twin cylinder.png",
+          price: "₹120,000",
+          availability: "Limited",
+          category: "Engine"
+        },
+        {
+          title: "LED Headlight Kit",
+          image: "assets/Headlight.png",
+          price: "₹1,200",
+          availability: "Limited",
+          category: "Lights"
+        },
+        {
+          title: "MRF Car tyre",
+          image: "assets/tyre.png",
+          price: "₹5,200",
+          availability: "Limited",
+          category: "Tires"
+        },
+        {
+          title: "GoodYear Car tyre",
+          image: "assets/tyre.png",
+          price: "₹7,200",
+          availability: "Limited",
+          category: "Tires"
+        },
+        {
+          title: "MRF Bike tyre",
+          image: "assets/tyre.png",
+          price: "₹1,200",
+          availability: "Limited",
+          category: "Tires"
+        },
+        {
+          title: "Bridgestone Car tyre",
+          image: "assets/tyre.png",
+          price: "₹9,200",
+          availability: "Limited",
+          category: "Tires"
+        },
+        {
+          title: "Car Battery 12V",
+          image: "assets/battery.png",
+          price: "₹4,800",
+          availability: "Out of Stock",
+          category: "Battery"
+        }
+      ];
+
+      const filtered = sampleParts.filter(p => p.category === partCategory || partCategory === "");
+
+      const container = document.getElementById("partsList");
+      container.innerHTML = "";
+
+      if (filtered.length === 0) {
+        container.innerHTML = "<p>No parts found for selected category.</p>";
+        return;
+      }
+
+      filtered.forEach(part => {
+        const card = document.createElement("div");
+        card.className = "part-card";
+        card.innerHTML = `
+          <img src="${part.image}" alt="${part.title}">
+          <h3>${part.title}</h3>
+          <p><strong>Price:</strong> ${part.price}</p>
+          <p><strong>Status:</strong> ${part.availability}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

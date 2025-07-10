@@ -1,0 +1,326 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearby Mechanics</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>AUTOCARE360</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mechanics.html">Mechanic Finder</a>
+      <a href="parts.html">Parts</a>
+      <a href="diy.html">DIY Tutorials</a>
+      <a href="used.html">Used Vehicles</a>
+      <a href="documents.html">Documents</a>
+
+    </nav>
+  </header>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DIY Tutorials | AUTOCARE360</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: bisque;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #010101;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 970px;
+      margin: 30px auto;
+      background-color: bisque;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(163, 23, 23, 0.1);
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .info-box {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #eef3f7;
+      border-left: 4px solid #ff9900;
+      display: none;
+    }
+
+    a.tutorial-link {
+      color: #0077cc;
+      text-decoration: underline;
+    }
+
+    .forum-box {
+      margin-top: 40px;
+      padding: 25px;
+      background: linear-gradient(135deg, #1b1b1b, #2c2c2c);
+      color: #f0f0f0;
+      border: 1px solid #ff0000;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+
+    .forum-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+    }
+
+    .forum-box input, .forum-box textarea, .forum-box select {
+      background-color: #2b2b2b;
+      color: #f0f0f0;
+      border: 1px solid #444;
+    }
+
+    .forum-box input::placeholder,
+    .forum-box textarea::placeholder {
+      color: #999;
+    }
+
+    .submit-btn {
+      background-color: black;
+      color: red;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: red;
+      color: white;
+    }
+
+    footer {
+      background-color: #1e2a38;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AUTOCARE360 - DIY Tutorials</h1>
+</header>
+
+<div class="container">
+  <label for="vehicleType" style="color: black;">Select Vehicle Type:</label>
+  <select id="vehicleType">
+    <option value="">-- Select Vehicle --</option>
+    <option value="car">Car</option>
+    <option value="bike">Bike</option>
+  </select>
+
+  <label for="issueSelect" style="color: black;">Select an Issue:</label>
+  <select id="issueSelect">
+    <option value="">-- Select Issue --</option>
+    <option value="flatTire">Flat Tire</option>
+    <option value="oilChange">Oil Change</option>
+    <option value="brakeCheck">Brake Check</option>
+    <option value="batteryIssue">Battery Issue</option>
+    <option value="coolantRefill">Coolant Refill</option>
+    <option value="chainAdjustment">Chain Adjustment</option>
+    <option value="airFilter">Air Filter Cleaning</option>
+    <option value="headlightReplace">Headlight Replacement</option>
+
+  </select>
+
+
+  <div class="info-box" id="infoBox">
+    <h3>Tools Required:</h3>
+    <ul id="toolsList"></ul>
+    <p><strong>Watch Tutorial:</strong> <a href="#" id="tutorialLink" class="tutorial-link" target="_blank">Click here</a></p>
+  </div>
+
+  <!-- AI Mechanic Chatbot Section -->
+<section style="margin-top: 40px;">
+  <h2 style="color: #ff3c3c; text-align: center;">🔧 AI Mechanic Chatbot</h2>
+
+  <div style="background-color: #111; border: 2px solid #ff3c3c; padding: 20px; max-width: 600px; margin: 0 auto; border-radius: 10px;">
+    <div id="chatbox" style="height: 300px; overflow-y: auto; background-color: #1a1a1a; padding: 10px; color: #fff; border-radius: 5px; margin-bottom: 15px;">
+      <p style="color: #888;">AI Mechanic: Hi there! Describe your vehicle issue and I’ll help you troubleshoot it.</p>
+    </div>
+    <input id="userMessage" type="text" placeholder="Type your issue..." style="width: 80%; padding: 10px; border-radius: 5px; border: 1px solid #ff3c3c; background-color: #1a1a1a; color: #fff;">
+    <button onclick="sendFakeMessage()" style="padding: 10px 15px; background-color: #ff3c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">Send</button>
+  </div>
+</section>
+
+<script>
+  function sendFakeMessage() {
+    const userInput = document.getElementById("userMessage");
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    const chatbox = document.getElementById("chatbox");
+
+    const userMsg = document.createElement("p");
+    userMsg.style.color = "#00ff90";
+    userMsg.textContent = "You: " + message;
+    chatbox.appendChild(userMsg);
+
+    const botMsg = document.createElement("p");
+    botMsg.style.color = "#888";
+    botMsg.textContent = "AI Mechanic: (This will be replaced with a real response once API is connected)";
+    chatbox.appendChild(botMsg);
+
+    userInput.value = "";
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+</script>
+
+
+  
+
+  <div class="forum-box">
+    <h2>Ask Our Mechanic</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <select required>
+        <option value="">-- Select Vehicle Type --</option>
+        <option value="car">Car</option>
+        <option value="bike">Bike</option>
+      </select>
+      <textarea rows="5" placeholder="Describe your issue in detail..." required></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
+<link rel="stylesheet" href="diy.css">
+
+<!--FAQs-->
+<section class="faq-section">
+  <h2>🔧 Frequently Asked Questions</h2>
+
+  <div class="faq">
+    <button class="faq-question">Q1: What should I do if my bike won't start?</button>
+    <div class="faq-answer">
+      <p>Check the battery, spark plug, and fuel level. If the issue persists, consult a mechanic or watch our related DIY video.</p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <button class="faq-question">Q2: How often should I change my car's engine oil?</button>
+    <div class="faq-answer">
+      <p>Every 5,000 to 7,000 km, or as specified in your vehicle's manual.</p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <button class="faq-question">Q3: My vehicle is overheating. What should I check?</button>
+    <div class="faq-answer">
+      <p>Check coolant levels, radiator fan operation, and water pump condition.</p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <button class="faq-question">Q4: How can I improve my bike's mileage?</button>
+    <div class="faq-answer">
+      <p>Regular servicing, correct tire pressure, and smooth riding habits help increase mileage.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 AUTOCARE360. All rights reserved.
+</footer>
+
+<script>
+  const issueData = {
+    flatTire: {
+      tools: ["Jack", "Wrench", "Spare Tire"],
+      video: "https://www.youtube.com/watch?v=JoH1tS9tEs8"
+    },
+    oilChange: {
+      tools: ["Wrench", "Oil Pan", "Engine Oil"],
+      video: "https://www.youtube.com/watch?v=O1hF25Cowv8"
+    },
+    brakeCheck: {
+      tools: ["Wrench", "Brake Cleaner", "Socket Set"],
+      video: "https://www.youtube.com/watch?v=9P7aU2DgMfY"
+    },
+    batteryIssue: {
+      tools: ["Multimeter", "Battery Terminal Cleaner", "Wrench"],
+      video: "https://www.youtube.com/watch?v=FhBZfrNqZhw"
+    },
+    coolantRefill: {
+      tools: ["Coolant", "Funnel", "Gloves"],
+      video: "https://www.youtube.com/watch?v=WsIi9t5Hibg"
+    },
+    chainAdjustment: {
+      tools: ["Wrench", "Chain Lube", "Paddock Stand"],
+      video: "https://youtu.be/F-Mmx8jZlrQ?si=AlxENnIo9Rmir8OH"
+    },
+    airFilter: {
+      tools: ["Screwdriver", "Cleaning Spray", "Brush"],
+      video: "https://youtu.be/RdXVxbd59es?si=yq2_kHT9EKCeZ66W"
+    },
+    headlightReplace: {
+      tools: ["Screwdriver", "New Bulb", "Gloves"],
+      video: "https://youtu.be/HO3IXM3XkUU?si=RE69EQeuIMMVA0AD"
+    }
+  };
+
+
+
+  const issueSelect = document.getElementById("issueSelect");
+  const toolsList = document.getElementById("toolsList");
+  const infoBox = document.getElementById("infoBox");
+  const tutorialLink = document.getElementById("tutorialLink");
+
+  issueSelect.addEventListener("change", () => {
+    const selectedIssue = issueSelect.value;
+    if (selectedIssue && issueData[selectedIssue]) {
+      const { tools, video } = issueData[selectedIssue];
+
+      toolsList.innerHTML = "";
+      tools.forEach(tool => {
+        const li = document.createElement("li");
+        li.textContent = tool;
+        toolsList.appendChild(li);
+      });
+
+      tutorialLink.href = video;
+      infoBox.style.display = "block";
+    } else {
+      infoBox.style.display = "none";
+    }
+  });
+</script>
+<script>
+  const questions = document.querySelectorAll(".faq-question");
+  questions.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const answer = btn.nextElementSibling;
+      answer.style.display = answer.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+
+</body>
+</html>

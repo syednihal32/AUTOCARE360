@@ -1,0 +1,125 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearby Mechanics</title>
+  <link rel="stylesheet" href="used.css" />
+</head>
+<body>
+  <header>
+    <h1>AUTOCARE360</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mechanics.html">Mechanic Finder</a>
+      <a href="parts.html">Parts</a>
+      <a href="diy.html">DIY Tutorials</a>
+      <a href="used.html">Used Vehicles</a>
+      <a href="documents.html">Documents</a>
+    </nav>
+  </header>
+    <!-- Your content here -->
+  
+    <script src="app.js"></script>
+  </body>
+
+  <!-- used-vehicles.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Vehicles - AUTOCARE360</title>
+  <link rel="stylesheet" href="used-vehicles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Buy / Sell Genuine Used Vehicles</h1>
+  </header>
+
+  <!-- Search & Filter Section -->
+  <div class="filter-section">
+  <label for="vehicleType">Vehicle Type:</label>
+  <select id="vehicleType">
+    <option>Car</option>
+    <option>Bike</option>
+  </select>
+
+  <label for="brandModel">Brand & Model:</label>
+  <input type="text" id="brandModel" placeholder="e.g., Honda City">
+
+  <label for="year">Year:</label>
+  <input type="number" id="year" placeholder="2018">
+
+  <label for="fuel">Fuel Type:</label>
+  <select id="fuel">
+    <option>Petrol</option>
+    <option>Diesel</option>
+    <option>EV</option>
+    <option>Hybrid</option>
+  </select>
+
+  <label for="transmission">Transmission:</label>
+  <select id="transmission">
+    <option>Manual</option>
+    <option>Automatic</option>
+  </select>
+
+  <label for="priceRange">Price Range:</label>
+  <input type="range" id="priceRange" min="0" max="1000000">
+
+  <label for="location">Location:</label>
+  <input type="text" id="location" placeholder="City or Zip code">
+
+  <button type="submit">Search Vehicles</button>
+</div>
+
+
+  <!-- Vehicle Listings -->
+  <section class="vehicle-listings">
+    <h2>Available Vehicles</h2>
+    <div id="listingsContainer">
+      <!-- Listings will be inserted here -->
+    </div>
+  </section>
+
+ <div class="post-vehicle">
+  <h2>Post Your Vehicle</h2>
+  <input type="text" placeholder="Your Name">
+  <input type="text" placeholder="Contact Info">
+  <select>
+    <option value="">Select Vehicle Type</option>
+    <option value="car">Car</option>
+    <option value="bike">Bike</option>
+  </select>
+  <input type="text" placeholder="Brand & Model">
+  <input type="number" placeholder="Year of Manufacture">
+  <input type="text" placeholder="Fuel Type">
+  <input type="text" placeholder="Transmission">
+  <input type="text" placeholder="Mileage">
+  <input type="text" placeholder="Location">
+  <input type="number" placeholder="Price">
+  <textarea placeholder="Description"></textarea>
+  <input type="file" multiple>
+  <button type="submit">Submit Vehicle</button>
+</div>
+
+
+  <!-- Safety Tips -->
+ <section class="safety-tips">
+  <h3>Safety Tips & Buyer Guidelines</h3>
+  <ul>
+    <li>Always meet in a public place during the day.</li>
+    <li>Verify vehicle documents and identity of the seller.</li>
+    <li>Don’t make advance payments without inspection.</li>
+    <li>Check service history and ownership chain.</li>
+    <li>Inspect the vehicle with a mechanic if unsure.</li>
+    <li>Use official payment modes and take a signed agreement.</li>
+    <li>Trust your instincts—if it feels shady, walk away.</li>
+  </ul>
+</section>
+
+
+  <!-- Footer or Optional User Reviews can be added here -->
+
+</body>
+</html>

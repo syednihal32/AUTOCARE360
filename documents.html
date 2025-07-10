@@ -1,0 +1,79 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Tracker</title>
+  <link rel="stylesheet" href="documents.css" />
+</head>
+<body>
+
+<header>
+  <h1>AUTOCARE360</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="diy.html">DIY Tutorials</a>
+    <a href="used.html">Used Vehicles</a>
+    <a href="parts.html">Parts</a>
+    <a href="documents.html">Documents</a>
+  </nav>
+</header>
+
+
+  <section class="upload-section">
+    <h2>Upload Vehicle Document</h2>
+    <form id="documentForm">
+  <label for="docType">Document Type:</label>
+  <select id="docType" required>
+    <option value="">-- Select --</option>
+    <option>RC</option>
+    <option>Insurance</option>
+    <option>PUC</option>
+    <option>Service Record</option>
+    <option>Loan Paper</option>
+    <option>Road Tax</option>
+  </select>
+
+  <label for="vehicle">Vehicle (e.g., Car / Bike):</label>
+  <input type="text" id="vehicle" required />
+
+  <label for="expiry">Expiry Date:</label>
+  <input type="date" id="expiry" required />
+
+  <label for="file">Upload File:</label>
+  <input type="file" id="file" required />
+
+  <label for="notes">Notes (optional):</label>
+  <textarea id="notes" rows="3"></textarea>
+
+  <button type="submit">Upload</button>
+</form>
+
+
+  </section>
+
+  
+
+  <section class="document-list">
+    <h2>Your Documents</h2>
+    <table>
+  <thead>
+    <tr>
+      <th>Document Type</th>
+      <th>Vehicle</th>
+      <th>Expiry Date</th>
+      <th>Uploaded File</th>
+    </tr>
+  </thead>
+  <tbody id="documents-table-body">
+    <!-- Uploaded documents will appear here -->
+  </tbody>
+</table>
+
+
+  </section>
+
+  <script src="documents.js"></script>
+</body>
+</html>

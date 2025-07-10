@@ -1,0 +1,199 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  header {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+  }
+  nav {
+  background-color: #000000;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero {
+  text-align: center;
+}
+.feature{
+  text-align: left;
+}
+
+.features{
+  background-color: bisque;
+}
+.feature2{
+  text-align: right;
+}
+.feature2{
+  background-color: lightsalmon;
+}
+
+.feature3{
+  background-color: bisque;
+}
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e60000; /* Red on hover */
+}
+
+  nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  
+  h1, h2 {
+    color: #e60000; /* Red for headings */
+  }
+  
+  section {
+    padding: 2rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+ /* Buttons in top-right corner */
+.auth-buttons {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.auth-buttons .btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-buttons .btn:hover {
+  background-color: black;
+}
+
+  
+  button:hover {
+    background-color: #c50000;
+  }
+  
+  .footer {
+    background-color: #000000;
+    color: #3d0202;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .faq-section {
+    background-color: #111;
+    color: #eee;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px red;
+  }
+  
+  .faq-section h2 {
+    color: #ff0000;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff0000;
+    padding-bottom: 10px;
+  }
+  
+  .faq-question {
+    background-color: #222;
+    color: #ff3333;
+    border: none;
+    padding: 15px;
+    text-align: left;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s;
+  }
+  
+  .faq-question:hover {
+    background-color: #333;
+  }
+  
+  .faq-answer {
+    display: none;
+    padding: 15px;
+    color: #ccc;
+    background-color: #1a1a1a;
+    border-left: 4px solid red;
+  }
+
+  
+for used vehicles
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #b30000;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #ffffff;
+}
+
+.filters, .vehicle-listings, .post-vehicle, .safety-tips {
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1000px;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form input, form select, form textarea, form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #ff1a1a;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+form button:hover {
+  background-color: #e60000;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
